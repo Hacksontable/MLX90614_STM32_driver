@@ -26,20 +26,20 @@
 
 # Misc
 *.map
-*.m
-*.png
+#*.m
+#*.png
 
 # Eclipse CDT project files
-.cproject
-.project
-.settings/
+#.cproject
+#.project
+#.settings/
 
 # Vagrant directory
 .vagrant/
 
 # Include makefiles
-!Makefile
-*~
++!Makefile
+#*~
 
 # Libraries
-/lib
+#/lib
