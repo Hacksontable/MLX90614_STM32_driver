@@ -9,7 +9,12 @@ PINNING:
 The project was made with a NUCLEO-F103RB board. The communication between the MLX90614 is done via I2C communication. Therefore, the NUCLEO-F103RB board is connected via PB8 (for SCL) and PB9 (for SDA) to the MLX90614.
 If you use an other board, make sure to connect the MLX90614 to the correct pins on the board. The 
 
-There might be a clean necessary before build.
+
+IMPORTANT NOTES:
+- There might be a clean necessary before build.
+- If there is an issue to open the .ioc file (CubeMX), just make sure that the name of the .ioc file is the same as the name of the project itself.
+
+
 
 About the state of development:
 Currently only the reading of the MLX90614 is implemented. The implementation of the writing functionality will be done of the next steps.
