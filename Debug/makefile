@@ -35,34 +35,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := MLX90614_IR_Temp
+BUILD_ARTIFACT_NAME := MLX90614_STM32_driver
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-MLX90614_IR_Temp.elf \
+MLX90614_STM32_driver.elf \
 
 MAP_FILES += \
-MLX90614_IR_Temp.map \
+MLX90614_STM32_driver.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-MLX90614_IR_Temp.list \
+MLX90614_STM32_driver.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: MLX90614_IR_Temp.elf secondary-outputs
+main-build: MLX90614_STM32_driver.elf secondary-outputs
 
 # Tool invocations
-MLX90614_IR_Temp.elf MLX90614_IR_Temp.map: $(OBJS) $(USER_OBJS) C:\Users\krisa\Desktop\MLX90614\MLX90614_IR_Temp\STM32F103RBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "MLX90614_IR_Temp.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\krisa\Desktop\MLX90614\MLX90614_IR_Temp\STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MLX90614_IR_Temp.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+MLX90614_STM32_driver.elf MLX90614_STM32_driver.map: $(OBJS) $(USER_OBJS) C:\repos\MLX90614_STM32_driver\STM32F103RBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "MLX90614_STM32_driver.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\repos\MLX90614_STM32_driver\STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MLX90614_STM32_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -71,14 +71,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-MLX90614_IR_Temp.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "MLX90614_IR_Temp.list"
+MLX90614_STM32_driver.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "MLX90614_STM32_driver.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) MLX90614_IR_Temp.elf MLX90614_IR_Temp.list MLX90614_IR_Temp.map default.size.stdout
+	-$(RM) MLX90614_STM32_driver.elf MLX90614_STM32_driver.list MLX90614_STM32_driver.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
