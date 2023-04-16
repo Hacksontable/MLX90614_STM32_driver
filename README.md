@@ -17,7 +17,7 @@ IMPORTANT NOTES:
 
 
 About the state of development:
-Currently only the reading of the MLX90614 is implemented. The implementation of the writing functionality will be done of the next steps.
+Currently only the reading of the MLX90614 is implemented. The implementation of the writing functionality will be one of the next steps.
 
 
 
